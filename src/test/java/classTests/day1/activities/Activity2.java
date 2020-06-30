@@ -3,8 +3,11 @@ package classTests.day1.activities;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObject.day1.HomePage;
 
 public class Activity2 {
     WebDriver driver;
@@ -21,16 +24,18 @@ public class Activity2 {
 
     @Test
     public void practiceWithWebElement() {
+        WebElement chapter1 = driver.findElement(By.xpath("//a[@href=\"/chapter1\"]"));
+        chapter1.click();
 
-        //find element "Chapter 1" and  click on it
-        // clear text from text box
-        //  and send text to same text box
+        WebElement textBox = driver.findElement(By.xpath("//div[@id=\"html5div\"]"));
+        textBox.clear();
+        textBox.sendKeys("Did it work yet?");
 
-        //from element "Click this link to launch another window" print out text
-        //from "Verify button" get attribute ( any you like) and print out
-        //from header " Selenium: Beginners Guide" get cssValue color also print out it
+        System.out.println(driver.findElement(By.xpath("//div[@class=\"multiplewindow\"]")).getText());
 
+        System.out.println(driver.findElement(By.xpath("//input[@id=\"verifybutton\"]")).getAttribute("value"));
 
+        System.out.println(driver.findElement(By.xpath("//div[@class=\"mainheading\"]")).getCssValue("color"));
     }
 
     @After
