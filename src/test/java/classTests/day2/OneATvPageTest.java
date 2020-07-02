@@ -16,7 +16,7 @@ public class OneATvPageTest extends BaseWebTest {
     @Test
     public void tvTest(){
         OneATvPage tvPage = new OneATvPage(driver);
-        tvPage.printProductDetails(22);
+        tvPage.printProductDetails(2);
 
     }
 }

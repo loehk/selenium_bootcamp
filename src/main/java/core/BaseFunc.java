@@ -21,7 +21,11 @@ public class BaseFunc {
     public BaseFunc(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 50);
+    }
+
+    public BaseFunc() {
+
     }
 
     public void acceptAlert() {
