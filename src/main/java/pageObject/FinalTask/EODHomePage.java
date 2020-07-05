@@ -1,4 +1,4 @@
-package pageObject.day2;
+package pageObject.FinalTask;
 
 import core.BaseFunc;
 import org.openqa.selenium.WebDriver;
@@ -8,23 +8,20 @@ import org.openqa.selenium.support.How;
 
 import java.util.List;
 
-public class EOD extends BaseFunc {
+public class EODHomePage extends BaseFunc {
 
-    public EOD(WebDriver driver) {
+    public EODHomePage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(how = How.XPATH, using="//a[@class='dropdown-toggle']")
-    private List<WebElement> menuItems;
+    public List<WebElement> menuItems;
 
     @FindBy(how = How.XPATH, using="/html/body/div[1]/nav/div[2]/ul/li[3]/div/div/ul/li[2]/a")
-    private List<WebElement> menuItemsDD;
+    public List<WebElement> menuItemsDD;
 
     @FindBy(how = How.XPATH, using="/html/body/div[2]/div/div/div[3]/div[1]/div/div[2]/div[1]/h4/a")
-    private List<WebElement> productApple30;
-
-    @FindBy(how = How.XPATH, using="")
-    private List<WebElement> checkBox;
+    public List<WebElement> productApple30;
 
     public void selectMenuItem(String menuName) {
         for (WebElement element : menuItems) {
@@ -39,7 +36,7 @@ public class EOD extends BaseFunc {
     public void clickMenuItemsDD(String menuNameDD) {
         for (WebElement element : menuItemsDD){
             String itemnameDD = element.getText();
-            if (menuNameDD.equals(itemnameDD)) {
+            if (itemnameDD.contains(menuNameDD)) {
                 element.click();
             }
         }
